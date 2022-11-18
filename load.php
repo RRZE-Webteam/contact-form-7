@@ -40,7 +40,7 @@ class WPCF7 {
 		self::load_module( 'acceptance' );
 		self::load_module( 'akismet' );
 		self::load_module( 'checkbox' );
-		self::load_module( 'constant-contact' );
+		//self::load_module( 'constant-contact' );
 		self::load_module( 'count' );
 		self::load_module( 'date' );
 		self::load_module( 'disallowed-list' );
@@ -52,11 +52,11 @@ class WPCF7 {
 		self::load_module( 'number' );
 		self::load_module( 'quiz' );
 		self::load_module( 'really-simple-captcha' );
-		self::load_module( 'recaptcha' );
+		//self::load_module( 'recaptcha' );
 		self::load_module( 'response' );
 		self::load_module( 'select' );
-		self::load_module( 'sendinblue' );
-		self::load_module( 'stripe' );
+		//self::load_module( 'sendinblue' );
+		//self::load_module( 'stripe' );
 		self::load_module( 'submit' );
 		self::load_module( 'text' );
 		self::load_module( 'textarea' );
