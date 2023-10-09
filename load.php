@@ -40,9 +40,9 @@ class WPCF7 {
 	 */
 	public static function load_modules() {
 		self::load_module( 'acceptance' );
-		self::load_module( 'akismet' );
+		// self::load_module( 'akismet' ); // @RRZE
 		self::load_module( 'checkbox' );
-		//self::load_module( 'constant-contact' ); // @RRZE
+		// self::load_module( 'constant-contact' ); // @RRZE
 		self::load_module( 'count' );
 		self::load_module( 'date' );
 		self::load_module( 'disallowed-list' );
@@ -54,12 +54,12 @@ class WPCF7 {
 		self::load_module( 'number' );
 		self::load_module( 'quiz' );
 		self::load_module( 'really-simple-captcha' );
-		//self::load_module( 'recaptcha' ); // @RRZE
+		// self::load_module( 'recaptcha' ); // @RRZE
 		self::load_module( 'reflection' );
 		self::load_module( 'response' );
 		self::load_module( 'select' );
-		//self::load_module( 'sendinblue' ); // @RRZE
-		//self::load_module( 'stripe' ); // @RRZE
+		// self::load_module( 'sendinblue' ); // @RRZE
+		// self::load_module( 'stripe' ); // @RRZE
 		self::load_module( 'submit' );
 		self::load_module( 'text' );
 		self::load_module( 'textarea' );
@@ -110,10 +110,14 @@ class WPCF7 {
 	 * @param mixed $value Option value.
 	 */
 	public static function update_option( $name, $value ) {
-		$option = get_option( 'wpcf7' );
-		$option = ( false === $option ) ? array() : (array) $option;
-		$option = array_merge( $option, array( $name => $value ) );
-		update_option( 'wpcf7', $option );
+		$old_option = get_option( 'wpcf7' );
+		$old_option = ( false === $old_option ) ? array() : (array) $old_option;
+
+		update_option( 'wpcf7',
+			array_merge( $old_option, array( $name => $value ) )
+		);
+
+		do_action( 'wpcf7_update_option', $name, $value, $old_option );
 	}
 }
 
