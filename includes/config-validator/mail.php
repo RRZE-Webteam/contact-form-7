@@ -542,20 +542,20 @@ trait WPCF7_ConfigValidator_Mail {
 	 * @link https://contactform7.com/configuration-errors/unsafe-email-without-protection/
 	 */
 	public function detect_unsafe_email_without_protection( $section, $content ) {
-		// static $is_recaptcha_active = null;
+		static $is_recaptcha_active = null;
 
-		// if ( null === $is_recaptcha_active ) {
-		// 	$is_recaptcha_active = call_user_func( function () {
-		// 		$service = WPCF7_RECAPTCHA::get_instance();
-		// 		return $service->is_active();
-		// 	} );
-		// }
+		if ( null === $is_recaptcha_active ) {
+			$is_recaptcha_active = call_user_func( function () {
+				$service = WPCF7_RECAPTCHA::get_instance();
+				return $service->is_active();
+			} );
+		}
 
-		// if ( $is_recaptcha_active ) {
-		// 	return false;
-		// } // @RRZE
+		if ( $is_recaptcha_active ) {
+			return false;
+		}
 
-		$example_email = 'example@example.com';
+		$example_email = 'user-specified@example.com';
 
 		// Replace mail-tags connected to an email type form-tag first.
 		$content = $this->replace_mail_tags( $content, array(
