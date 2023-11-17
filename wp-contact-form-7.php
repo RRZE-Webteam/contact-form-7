@@ -12,7 +12,7 @@
  * Requires PHP: 7.4
  */
 
-define( 'WPCF7_VERSION', '5.8.2' );
+define( 'WPCF7_VERSION', '5.8.3' );
 
 define( 'WPCF7_REQUIRED_WP_VERSION', '6.2' );
 
