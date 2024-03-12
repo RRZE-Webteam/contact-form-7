@@ -681,7 +681,7 @@ function wpcf7_outdated_php_warning( $page, $action, $object ) {
 }
 
 
-add_action( 'wpcf7_admin_warnings', 'wpcf7_ctct_deprecated_warning', 10, 3 );
+// add_action( 'wpcf7_admin_warnings', 'wpcf7_ctct_deprecated_warning', 10, 3 ); // @RRZE
 
 function wpcf7_ctct_deprecated_warning( $page, $action, $object ) {
 	$service = WPCF7_ConstantContact::get_instance();
