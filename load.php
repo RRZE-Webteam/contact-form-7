@@ -41,9 +41,9 @@ class WPCF7 {
 	 */
 	public static function load_modules() {
 		self::load_module( 'acceptance' );
-		// self::load_module( 'akismet' ); // @RRZE
+		self::load_module( 'akismet' );
 		self::load_module( 'checkbox' );
-		// self::load_module( 'constant-contact' ); // @RRZE
+		self::load_module( 'constant-contact' );
 		self::load_module( 'count' );
 		self::load_module( 'date' );
 		self::load_module( 'disallowed-list' );
