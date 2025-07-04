@@ -65,7 +65,7 @@ class WPCF7 {
 		self::load_module( 'submit' );
 		self::load_module( 'text' );
 		self::load_module( 'textarea' );
-		self::load_module( 'turnstile' );
+		// self::load_module( 'turnstile' ); // @RRZE
 	}
 
 

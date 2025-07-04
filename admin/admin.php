@@ -748,7 +748,7 @@ function wpcf7_ctct_deprecated_warning( $page, $action, $object ) {
 }
 
 
-add_action( 'wpcf7_admin_warnings', 'wpcf7_captcha_future_warning', 10, 3 );
+// add_action( 'wpcf7_admin_warnings', 'wpcf7_captcha_future_warning', 10, 3 ); //@RRZE
 
 function wpcf7_captcha_future_warning( $page, $action, $object ) {
 	$service = WPCF7_RECAPTCHA::get_instance();
