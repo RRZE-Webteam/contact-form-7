@@ -1,5 +1,7 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 trait WPCF7_ConfigValidator_Mail {
 
 	/**
@@ -521,8 +523,7 @@ trait WPCF7_ConfigValidator_Mail {
 			return false;
 		}
 
-		// static $is_captcha_active = null;  // @RRZE
-		$is_captcha_active = false; // @RRZE
+		static $is_captcha_active = null;
 
 		if ( null === $is_captcha_active ) {
 			$is_captcha_active = call_user_func( static function () {

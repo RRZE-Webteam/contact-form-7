@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
+require WPCF7_PLUGIN_DIR . '/vendor/autoload.php';
+
 require_once WPCF7_PLUGIN_DIR . '/includes/l10n.php';
 require_once WPCF7_PLUGIN_DIR . '/includes/capabilities.php';
 require_once WPCF7_PLUGIN_DIR . '/includes/filesystem.php';
@@ -9,8 +13,9 @@ require_once WPCF7_PLUGIN_DIR . '/includes/pipe.php';
 require_once WPCF7_PLUGIN_DIR . '/includes/pocket-holder.php';
 require_once WPCF7_PLUGIN_DIR . '/includes/form-tag.php';
 require_once WPCF7_PLUGIN_DIR . '/includes/form-tags-manager.php';
-require_once WPCF7_PLUGIN_DIR . '/includes/shortcodes.php';
 require_once WPCF7_PLUGIN_DIR . '/includes/swv/swv.php';
+require_once WPCF7_PLUGIN_DIR . '/includes/swv/schema-holder.php';
+require_once WPCF7_PLUGIN_DIR . '/includes/swv/script-loader.php';
 require_once WPCF7_PLUGIN_DIR . '/includes/contact-form-functions.php';
 require_once WPCF7_PLUGIN_DIR . '/includes/contact-form-template.php';
 require_once WPCF7_PLUGIN_DIR . '/includes/contact-form.php';
@@ -56,16 +61,16 @@ class WPCF7 {
 		self::load_module( 'number' );
 		self::load_module( 'quiz' );
 		self::load_module( 'really-simple-captcha' );
-		// self::load_module( 'recaptcha' ); // @RRZE
+		self::load_module( 'recaptcha' );
 		self::load_module( 'reflection' );
 		self::load_module( 'response' );
 		self::load_module( 'select' );
-		// self::load_module( 'sendinblue' ); // @RRZE
-		// self::load_module( 'stripe' ); // @RRZE
+		self::load_module( 'sendinblue' );
+		self::load_module( 'stripe' );
 		self::load_module( 'submit' );
 		self::load_module( 'text' );
 		self::load_module( 'textarea' );
-		// self::load_module( 'turnstile' ); // @RRZE
+		self::load_module( 'turnstile' );
 	}
 
 
