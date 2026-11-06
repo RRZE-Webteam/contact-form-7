@@ -25,6 +25,11 @@ add_action(
 	9, 0
 );
 
+/**
+ * Registers the Contact Form 7 admin menus, excluding integration settings.
+ *
+ * @return void
+ */
 function wpcf7_admin_menu() {
 	do_action( 'wpcf7_admin_menu' );
 
@@ -77,23 +82,10 @@ function wpcf7_admin_menu() {
 
 	add_action( 'load-' . $addnew, 'wpcf7_load_contact_form_admin', 10, 0 );
 
-    // @RRZE
-    //	$integration = WPCF7_Integration::get_instance();
-    //
-    //	if ( $integration->service_exists() ) {
-    //		$integration = add_submenu_page(
-    //			'wpcf7-dashboard',
-    //			__( 'Integration with External API', 'contact-form-7' ),
-    //			__( 'Integration', 'contact-form-7' )
-    //				. wpcf7_admin_menu_change_notice( 'wpcf7-integration' ),
-    //			'wpcf7_manage_integration',
-    //			'wpcf7-integration',
-    //			'wpcf7_admin_integration_page'
-    //		);
-    //
-    //		add_action( 'load-' . $integration, 'wpcf7_load_integration_page', 10, 0 );
-    //	}
+	// @RRZE: Do not register the integration settings page or its load hook.
+	// This preserves the existing restriction; integration modules still load.
 }
+
 
 function wpcf7_admin_menu_change_notice( $menu_slug = '' ) {
 	$counts = apply_filters( 'wpcf7_admin_menu_change_notice',
